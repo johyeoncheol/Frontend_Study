@@ -1,2 +1,9 @@
 # Frontend_Study
-Html &amp; Css &amp; Javascript &amp; ....
+
+- HTML
+
+- CSS
+
+- Javascript
+
+- JQuery
