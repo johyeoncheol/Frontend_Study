@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  form: 클라이언트가 서버로 정보를 전송할 때 사용하는 태그
+	action 속성 : 서버쪽에서 정보를 받을 파일(자원)
+	method 속성 : 서버로 보낼 전송 방식 지정
+ -->
+	<h1>form test</h1>
+	<form action="welcome.jsp" method="get">
+		ID <input type="text" name="id"><br>
+		PW <input type="password" name="pass"><br>
+		<hr>
+		COLOR <input type="color"><br>
+		EMAIL <input type="email"><br>
+		RANGE <input type="range"><br>
+		NUMBER <input type="number"><br>
+		DATE <input type="date"><br>
+		SEARCH <input type="search"><br>
+		BUFFON <input type="button" value="check"><br>
+		FILE<input type="file"><br>
+		<hr>
+		<input type="reset" value="취소">
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>
