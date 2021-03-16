@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function go(){
+		//1. 입력한 값을 알아내기
+		var id = document.getElementById("id");
+		// <input type="text" name="id" id="id">
+		var pw = document.getElementById("pw");
+		
+		/* var idvalue = id.value; //입력칸 안의 값
+		var pwvalue = pw.value;
+		
+		alert(idvalue + " , " + pwvalue );
+		id.value="";
+		pw.value=""; */
+		
+		//2. 입력한 아이디가 tommy이고 암호가 1234이면 alert -> welcome
+		if(id.value =="tommy"  && pw.value==1234){
+			alert('welcome');
+		}//3. 아니면 alert -> 다시 입력해 달라는 메시지 & 입력 
+		else{
+			alert('다시 입력해주세요');
+		}
+		
+	}
+</script>
+</head>
+<body>
+<!-- 
+	dom(document object model)
+	화면에 보이는 요소(태그들)을 조작하기 위한 기능
+	html문서는 브라우저에서 실행될 때 dom 구조로 파악하고 있음...
+	dom에서는 원하는 대상을 찾을때는 id로 찾아야 한다.
+	이름으로 찾는 경우 중복이 될 수도 있기 때문이다.
+ -->
+	<h1>Login</h1>
+	<form method="post">
+		ID <input type="text" name="id" id="id"><br>
+		PW <input type="password" name="pass" id="pw"><br>
+		<input type="reset" value="취소">
+		<input type="submit" value="전송" onclick="go()">
+	</form>
+</body>
+</html>

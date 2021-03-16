@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function process(that){
+		var id = that.id;
+		var post = id.substring(0, 5);
+		var addr = id.substring(5);
+		
+		opener.document.getElementById("addr1").value=post;
+		opener.document.getElementById("addr2").value=addr;
+		window.close();
+	}
+</script>
+</head>
+<body>
+<h1>주소 찾기</h1>
+<a href="#" id="12345서울시 서초구" onclick="process(this)">12345 서울시 서초구</a><br>
+<a href="#" id="12367서울시 종로구" onclick="process(this)">12367 서울시 종로구</a><br>
+<a href="#" id="14560서울시 영등포구" onclick="process(this)">14560 서울시 영등포구</a><br>
+
+</body>
+</html>
