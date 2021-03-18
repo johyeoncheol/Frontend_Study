@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	//val은 상황에 따라서 getter / setter 역활을 모두 수행할 수 있다.
+	$(document).ready(function() {
+		$(":text").val("welcome"); // text칸에 값을 setting. setter
+		alert($(":text").val()); // text칸에 들어있는 값을 알아옴. getter
+		$(":password").css('border', '2px solid red');
+		$(":file").css('border', '2px solid green');
+		
+		//method chaining
+		$("[href]").css('color', 'red').css('text-decoration', 'none');
+	});
+</script>
+</head>
+<body>
+	<input type="text"><br>
+	<input type="password"><br>
+	<input type="button" value="press"><br>
+	<input type="file"><br>
+	<a href="#">gogo</a>
+</body>
+</html>

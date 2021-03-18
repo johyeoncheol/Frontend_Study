@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//method chaining
+		//$('h1').css('color', 'blue').css('font-size', '20pt');
+		
+		//each
+		$('h1').each(function(index,item){
+			//$(this).css('color', 'red').css('font-size','20pt');
+			if(index % 2 ==0){
+				$(item).css('color','pink');
+			}else{
+				$(item).css('color','green');
+			}
+		});
+		
+		$('h1:first').css('color','cyan');
+		$('h1:last').css('color','magenta');
+		$('h1:eq(3)').css('color','yellow'); // 인덱스는 0 부터 시작
+	})
+</script>
+</head>
+<body>
+	<h1>this is h1 tag</h1>
+	<h1>this is h1 tag</h1>
+	<h1>this is h1 tag</h1>
+	<h1>this is h1 tag</h1>
+	<h1>this is h1 tag</h1>
+	<h1>this is h1 tag</h1>
+	<h1>this is h1 tag</h1>
+	<h1>this is h1 tag</h1>
+</body>
+</html>

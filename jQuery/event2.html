@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//button에 click이벤트를 등록시킴
+		$('button').on('click',function() {
+			var h1 = $('<h1>hello, h1</h1>');
+			$('div').append(h1);
+		});
+		
+		//html문서가 처음 브라우저에 로딩될 때는 h1태그가 아직 존재하지 않음
+		//$(staticParent).on(eventName,dynamicChild,eventHandler)
+		//div의 자식태그 h1에 click이벤트를 등록시킴
+		$('div').on('click', function() {
+			alert("hello!!!");
+		});
+	});
+</script>
+</head>
+<body>
+	<button onclick="">add</button>
+	<div></div>
+</body>
+</html>

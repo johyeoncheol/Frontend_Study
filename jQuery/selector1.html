@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.orange {
+	color: orange;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	//사용자의 스크립트 내용....
+	$(document).ready(function(){
+		$('h1').css('color','pink');
+		$('h2').css('color','red');
+		$('h3').css('font-size','30pt');
+		/* $('.orange').css('background-color','brown');
+		$('#green').css('color','green'); */
+		
+		//여러개의 속성을 지정할때
+		$("p").css({"color":"cyan","background-color":"yellow"});
+	});
+</script>
+</head>
+<body>
+	<h1>this is h1</h1>
+	<h1>this is h1</h1>
+
+	<h2>this is h2</h2>
+	<h2>this is h2</h2>
+
+	<h3>this is h3</h3>
+	<h3>this is h3</h3>
+
+	<p class="orange">this is orange p tag</p>
+	<p id="green">this is green p tag</p>
+</body>
+</html>

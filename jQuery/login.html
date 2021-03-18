@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- 
+1)아이디 중복 체크
+id 가 'tommy'이면 '사용중인 id 입니다'(span에 빨간 글씨로 표시)
+id 가 'tommy'가 아니면 '사용 가능한 id 입니다'(span에 파란 글씨로 표시)
+
+2)send 버튼 누르면
+패스워드 두 개가 일치하는지 검사 -> 다르면  -> alert 띄우기(패스워드가 일치하지 않습니다)
+모든 입력칸에 값이 있는지 검사 -> 비어 있으면 -> alert 띄우기(값을 입력해 주세요!)
+모든 값이 유효하면 alert(welcome) 띄우기
+ -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var id = $("#id");
+		$('#check').click(function() {
+			if (id.val() == "tommy") {
+				$('#result').text("사용중인 id 입니다.").css("color", "red");
+			} else {
+				$('#result').text("사용 가능한 id입니다.").css("color", "blue")
+			}
+		});
+
+		var pass1 = $("#pass1");
+		var pass2 = $("#pass2");
+		$('#send').click(function() {
+			if (pass1.val() == "" || pass2.val() == "") {
+				alert("값을 입력해 주세요!");
+			} else if (pass1.val() != pass2.val()) {
+				alert("패스워드가 일치하지 않습니다.");
+			} else {
+				alert("welcome");
+			}
+		});
+	})
+</script>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>join member</h1>
+	id:
+	<input type="text" id="id">
+	<button id="check">check</button>
+	<span id="result"></span>
+	<br> pass:
+	<input type="password" id="pass1">
+	<br> confirm pass:
+	<input type="password" id="pass2">
+	<br>
+	<button id="send">send</button>
+</body>
+</html>
