@@ -21,39 +21,47 @@ div.long {
 	height: 250px;
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-</script>
+
 <script type="text/javascript">
-	var str1="";
-	var str2="";
-	$(document).ready(function() {
-		$('button').click(function() {
-			var name = $('#name').val();
-			$.ajax({
-				url:'nameTest.jsp',
-				data:{
-					"name" : name
-				},
-				success: function(result) {
-					if(result.trim()=="true"){
-						str1+=name+"<br>";
-						$('#longNames').html(str1);
-					}else if(result.trim()=="false"){
-						str2+=name+"<br>";
-						$('#shortNames').html(str2);
-					}
-					$('#name').val("");
-				}
-			});
-		});
-	})
+	var xhr = null;
+
+	function getXHR() {
+		xhr = new XMLHttpRequest();
+	}
+
+	function sendGet() {
+		var name = document.getElementById("name");
+
+		var param = "?name=" + name.value;
+
+		getXHR(); //0
+		xhr.open("get", "nameTest.jsp" + param, true); //비동기 요청을 보내기 위한 준비
+		xhr.onreadystatechange = callback;
+		xhr.send(null); //비동기 요청 전송 .get 방식인 경우에는 null
+
+	}
+
+	function callback() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			//xhr.responseText가 공백이 포함되서 오기 때문에 확인을 trim으로 제거해준다.
+			var nam = document.getElementById("name");
+			result1 = document.getElementById("shortNames");
+			result2 = document.getElementById("longNames");
+			if (xhr.responseText.includes("true")) {
+				result2.innerHTML += "<h2>" + nam.value + "</h2>";
+			} else if (xhr.responseText.includes("false")) {
+				result1.innerHTML += "<h2>" + nam.value + "</h2>";
+			}
+			nam.value = "";
+		}
+
+	}
 </script>
 </head>
 <body>
 	<p>Please introduce yourself by entering your name in the box below</p>
 	<input type='text' size='24' id='name'></input>&nbsp;
-	<button>Submit</button>
+	<button onclick="sendGet()">Submit</button>
 	<br>
 	<br>
 
