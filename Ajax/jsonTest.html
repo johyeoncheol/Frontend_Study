@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('button:first').click(function() {
+				$.ajax({
+					url:'jsonarray.jsp',
+					success: function(result) { //서버가 보내주는 데이터의 형식은 기본이 텍스트
+						var json = eval("("+result+")"); //json형식의 문자열 -> json 객체로 변환
+						var str = "";
+						for (var i = 0; i < json.length; i++) {
+							str+= json[i]+"<br>";
+						}
+						$("#arrayDisplay").html(str); 
+					}
+				});
+			});
+			$('button:eq(1)').click(function() {
+				var key = $('#code').val();
+				$.ajax({
+					url:'jsoncollection.jsp',
+					dataType:'json',
+					success: function(json) {
+						var country = json[key];
+						$('#collectionDisplay1').html(country);
+						$('#code').val('');
+					}
+				});
+			});
+			$('button:last').click(function() {
+				var key=$('#id').val();
+				$.ajax({
+					url:'jsoncollection2.jsp',
+					dataType: "json",
+					success: function(json) {
+						var who=json[key];
+						var str="";
+						
+						if(who != null){
+							var name = who.name;
+							var address = who.address;
+							var tel = who.tel;
+							$('#collectionDisplay2').html(
+									name+"<br>"
+									+address +"<br>"
+									+tel+"<br>");
+						}else{
+							$('#collectionDisplay2').html("no data!!!");
+						}
+						$('#id').val('');
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>json array data</h1>
+	<button>array data</button><br>
+	<div id="arrayDisplay"></div>
+	<hr>
+	
+	<h1>json collection data-1</h1>
+	code: <input type="text" id="code">
+	<button>collection data-1</button><br>
+	<div id="collectionDisplay1"></div>
+	<hr>
+	
+	<h1>json collection data-2</h1>
+	id: <input type="text" id="id">
+	<button>collection data-2</button><br>
+	<div id="collectionDisplay2"></div>
+	
+</body>
+</html>

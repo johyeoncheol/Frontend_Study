@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ajax test</title>
+
+<style type="text/css">
+div {
+	display: inline-block;
+	overflow: auto;
+}
+
+div.short {
+	border: 2px solid blue;
+	width: 250px;
+	height: 250px;
+}
+
+div.long {
+	border: 2px solid red;
+	width: 250px;
+	height: 250px;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	var str1="";
+	var str2="";
+	$(document).ready(function() {
+		$('button').click(function() {
+			var name = $('#name').val();
+			$.ajax({
+				url:'nameTest.jsp',
+				data:{
+					"name" : name
+				},
+				success: function(result) {
+					if(result.trim()=="true"){
+						str1+=name+"<br>";
+						$('#longNames').html(str1);
+					}else if(result.trim()=="false"){
+						str2+=name+"<br>";
+						$('#shortNames').html(str2);
+					}
+					$('#name').val("");
+				}
+			});
+		});
+	})
+</script>
+</head>
+<body>
+	<p>Please introduce yourself by entering your name in the box below</p>
+	<input type='text' size='24' id='name'></input>&nbsp;
+	<button>Submit</button>
+	<br>
+	<br>
+
+	<div id='shortNames' class='short'></div>
+
+	<div id='longNames' class='long'></div>
+
+
+</body>
+</html>
